@@ -44,7 +44,7 @@ object Build : BuildType({
     steps {
         dotnetTest {
             name = "Run Test"
-            projects = """\SmartRouterTest\SmartRouterTest.csproj"""
+            projects = """\SmartRouterTest"""
             coverage = dotcover {
                 toolPath = "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%"
             }
