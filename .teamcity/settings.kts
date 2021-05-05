@@ -39,7 +39,7 @@ project {
         buildReportTab {
             id = "PROJECT_EXT_2"
             title = "Code Coverage"
-            startPage = "coverage.zip!index.html"
+            startPage = "coverage.zip!index.htm"
         }
     }
 }
