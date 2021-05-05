@@ -1,0 +1,23 @@
+containers:
+  build-env-framework:
+    build_directory: .batect/build-env-framework
+    working_directory: c:\code
+    volumes:
+      # This is equivalent to .:/code:cached
+      - local: .
+        container: c:\code
+
+tasks:
+  build:
+    description: Say hello to everyone
+    run:
+      container: build-env-framework
+      command: dotnet build
+
+  test:
+    description: Say hello to everyone
+    prerequisites:
+      - build
+    run:
+      container: build-env-framework
+      command: dotnet test smartroutertest /p:CollectCoverage=true /p:CoverletOutputFormat=json%2cCobertura
