@@ -2,3 +2,5 @@ Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/v2.2
 Expand-Archive c:\MinGit.zip -DestinationPath c:\MinGit;
 $env:PATH = $env:PATH + ';C:\MinGit\cmd\;C:\MinGit\cmd';
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
+
+dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.3.1

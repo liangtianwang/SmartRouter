@@ -351,3 +351,7 @@ MigrationBackup/
 
 # Rider
 .idea
+
+#coverage report
+.coverlet
+coverlet
