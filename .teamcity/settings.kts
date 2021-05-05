@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetPack
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetPublish
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetTest
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 /*
@@ -42,6 +43,12 @@ object Build : BuildType({
     }
 
     steps {
+        powerShell {
+            name = "batect"
+            scriptMode = script {
+                content = "./batect build"
+            }
+        }
         dotnetTest {
             name = "Run Test"
             projects = """\SmartRouterTest"""
