@@ -57,7 +57,11 @@ object Build : BuildType({
         powerShell {
             name = "batect"
             scriptMode = script {
-                content = """dotnet test SmartRouterTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xml"""
+                content = """
+                    dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.3.1
+                    dotnet test SmartRouterTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xml
+                    reportgenerator "-reports:coverlet/coverage.xml" "-targetdir:coverlet" -reporttypes:TeamCitySummary
+                """.trimIndent()
             }
         }
         dotnetTest {
