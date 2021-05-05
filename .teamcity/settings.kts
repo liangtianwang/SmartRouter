@@ -43,6 +43,12 @@ object Build : BuildType({
     }
 
     steps {
+        powerShell {
+            name = "batect"
+            scriptMode = script {
+                content = "./batect build"
+            }
+        }
         dotnetTest {
             name = "Run Test"
             projects = """\SmartRouterTest"""
@@ -64,12 +70,6 @@ object Build : BuildType({
             name = "Publish"
             projects = "SmartRouter.sln"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
-        }
-        powerShell {
-            name = "batect"
-            scriptMode = script {
-                content = "./batect build"
-            }
         }
     }
 
