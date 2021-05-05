@@ -59,6 +59,7 @@ object Build : BuildType({
         }
         dotnetBuild {
             name = "Build solution"
+            enabled = false
             projects = "SmartRouter.sln"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
