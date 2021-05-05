@@ -46,7 +46,7 @@ object Build : BuildType({
         powerShell {
             name = "batect"
             scriptMode = script {
-                content = "./batect build"
+                content = "./batect test"
             }
         }
         dotnetTest {
