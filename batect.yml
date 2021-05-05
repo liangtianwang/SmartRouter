@@ -16,8 +16,6 @@ tasks:
 
   test:
     description: Say hello to everyone
-    prerequisites:
-      - build
     run:
       container: build-env-framework
-      command: dotnet test SmartRouterTest/SmartRouterTest.csproj --no-build -c Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xml
+      command: dotnet test SmartRouterTest -c Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xml

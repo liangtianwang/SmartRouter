@@ -46,7 +46,7 @@ object Build : BuildType({
         powerShell {
             name = "batect"
             scriptMode = script {
-                content = "./batect test"
+                content = "dotnet test SmartRouterTest -c Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xmlt"
             }
         }
         dotnetTest {
