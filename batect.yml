@@ -18,7 +18,7 @@ tasks:
     description: Run Smart Router Test
     run:
       container: build-env-framework
-      command: dotnet test SmartRouterTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xml
+      command: dotnet test SmartRouterTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\\coverlet\\coverage.xml
 
   test:
     description: Run test & generate report
