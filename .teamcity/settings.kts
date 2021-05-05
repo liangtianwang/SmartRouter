@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetPack
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetPublish
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetTest
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 /*
@@ -33,6 +34,14 @@ version = "2020.2"
 project {
 
     buildType(Build)
+
+    features {
+        buildReportTab {
+            id = "PROJECT_EXT_2"
+            title = "Code Coverage"
+            startPage = "coverage.zip!index.html"
+        }
+    }
 }
 
 object Build : BuildType({
