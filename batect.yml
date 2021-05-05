@@ -12,7 +12,7 @@ tasks:
     description: Say hello to everyone
     run:
       container: build-env-framework
-      command: dotnet build
+      command: dotnet build -c Release
 
   test:
     description: Say hello to everyone
@@ -20,4 +20,4 @@ tasks:
       - build
     run:
       container: build-env-framework
-      command: dotnet test smartroutertest /p:CollectCoverage=true /p:CoverletOutputFormat=json%2cCobertura
+      command: dotnet test SmartRouterTest/SmartRouterTest.csproj --no-build -c Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\coverlet\coverage.xml
