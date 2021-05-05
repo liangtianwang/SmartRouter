@@ -47,6 +47,8 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    artifactRules = "./coverlet/*.htm => coverage.zip"
+
     vcs {
         root(DslContext.settingsRoot)
     }
