@@ -65,11 +65,13 @@ object Build : BuildType({
         }
         dotnetPack {
             name = "Package build"
+            enabled = false
             projects = "SmartRouter.sln"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
         dotnetPublish {
             name = "Publish"
+            enabled = false
             projects = "SmartRouter.sln"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
