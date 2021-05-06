@@ -47,6 +47,7 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    allowExternalStatus = true
     artifactRules = "./coverlet/*.htm => coverage.zip"
 
     vcs {
