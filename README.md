@@ -5,4 +5,4 @@
 [![Chat](https://img.shields.io/badge/chat-on%20GitHub%20Discussions-brightgreen.svg)](https://github.com/batect/batect/discussions)
 
 # SmartRouter
-Smart Router Test Library
+A sample skeleton project to test how TeamCity CI, Docker & Batect (created by TWer) work
