@@ -1,29 +1,21 @@
 containers:
   build-env-framework:
     build_directory: .batect/build-env-framework
-    working_directory: c:\code
+    working_directory: /code
     volumes:
       # This is equivalent to .:/code:cached
       - local: .
-        container: c:\code
+        container: /code
 
 tasks:
   build:
-    description: Build Smart Router solution
+    description: Build solution
     run:
       container: build-env-framework
       command: dotnet build -c Release
 
   testRun:
-    description: Run Smart Router Test
+    description: Run Test
     run:
       container: build-env-framework
-      command: dotnet test SmartRouterTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\\coverlet\\coverage.xml
-
-  test:
-    description: Run test & generate report
-    prerequisites:
-      - testRun
-    run:
-      container: build-env-framework
-      command: reportgenerator "-reports:coverlet/coverage.xml" "-targetdir:coverlet" -reporttypes:HTML
+      command: dotnet test SampleProject.UnitTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\\coverlet\\coverage.xml
