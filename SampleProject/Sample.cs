@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace SmartRouter
+﻿namespace SampleProject
 {
-    public class SmartRouterInit
+    public class Sample
     {
         public bool HelloWorld()
         {

@@ -1,15 +1,13 @@
-using System;
-using SmartRouter;
 using Xunit;
 
-namespace SmartRouterTest
+namespace SampleProject.UnitTest
 {
-    public class UnitTest1
+    public class SampleUnitTest
     {
         [Fact]
         public void Smart_Router_Hello_World()
         {
-            SmartRouterInit sr = new SmartRouterInit();
+            Sample sr = new Sample();
             Assert.True(sr.HelloWorld());
         }
     }

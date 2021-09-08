@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRouter", "SmartRouter\SmartRouter.csproj", "{E977082C-17F2-47F0-8AEF-14ABDC36F039}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject", "SampleProject\SampleProject.csproj", "{E977082C-17F2-47F0-8AEF-14ABDC36F039}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRouterTest", "SmartRouterTest\SmartRouterTest.csproj", "{6F9C6D78-8E62-47D4-BF8A-4F1D4E84BE50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject.UnitTest", "SampleProject.UnitTest\SampleProject.UnitTest.csproj", "{6F9C6D78-8E62-47D4-BF8A-4F1D4E84BE50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

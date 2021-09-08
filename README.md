@@ -4,5 +4,5 @@
 [![License](https://img.shields.io/github/license/batect/batect.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Chat](https://img.shields.io/badge/chat-on%20GitHub%20Discussions-brightgreen.svg)](https://github.com/batect/batect/discussions)
 
-# SmartRouter
+# TeamCity Integration Sample
 A sample skeleton project to test how TeamCity CI, Docker & Batect (created by TWer) work
