@@ -1,8 +1,8 @@
 using Xunit;
 
-namespace SampleProject.UnitTest
+namespace SampleAPI.UnitTest
 {
-    public class SampleUnitTest
+    public class SampleTest
     {
         [Fact]
         public void Smart_Router_Hello_World()
