@@ -6,3 +6,24 @@
 
 # TeamCity Integration Sample
 A sample skeleton project to test how TeamCity CI, Docker & Batect (created by TWer) work
+
+# Get Started
+
+To use this project, follow steps below:
+
+1. Install Docker locally 
+2. Run the following command to run TeamCity Server in Docker:
+
+```dockerfile
+docker run -it --name teamcity-server-instance \
+-v ~/TeamCity/data:/data/teamcity_server/datadir \
+-v ~/TeamCity/logs:/opt/teamcity/logs \
+-p 8111:8111 \
+jetbrains/teamcity-server
+
+```
+Don't forget to create `~/TeamCity/data` and `~/TeamCity/logs` folders
+
+3. Go to `localhost:8111` and create the TeamCity project
+4. Add connection to GitHub, follow the instruction to register TeamCity on Github
+5. Sign in to Github and add the project
