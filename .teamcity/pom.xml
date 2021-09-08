@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <name>SmartRouter Config DSL Script</name>
-  <groupId>SmartRouter</groupId>
-  <artifactId>SmartRouter_dsl</artifactId>
+  <name>TeamCity Integration Sample Config DSL Script</name>
+  <groupId>TeamCityIntegrationSample</groupId>
+  <artifactId>TeamCityIntegrationSample_dsl</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>
@@ -22,7 +22,7 @@
     </repository>
     <repository>
       <id>teamcity-server</id>
-      <url>http://localhost:82/app/dsl-plugins-repository</url>
+      <url>http://localhost:8111/app/dsl-plugins-repository</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>

@@ -24,6 +24,18 @@ jetbrains/teamcity-server
 ```
 Don't forget to create `~/TeamCity/data` and `~/TeamCity/logs` folders
 
-3. Go to `localhost:8111` and create the TeamCity project
-4. Add connection to GitHub, follow the instruction to register TeamCity on Github
-5. Sign in to Github and add the project
+3. Install a Linux Build Agent by running:
+
+```dockerfile
+docker run -d --name teamcity-agent-instance \
+-e SERVER_URL="http://teamcity-server-instance:8111" \
+--link teamcity-server-instance \
+-v ~/TeamCity/agent/conf:/data/teamcity_agent/conf \
+jetbrains/teamcity-agent
+```
+This use `--link` feature to get the agent to connect to the TC server instance
+Don't forget to create '~/TeamCity/agent/conf' folder
+
+4. Go to `localhost:8111` and create the TeamCity project
+5. Add connection to GitHub, follow the instruction to register TeamCity on Github
+6. Sign in to Github and add the project
