@@ -1,9 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetBuild
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetPack
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetPublish
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetTest
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
@@ -32,60 +28,26 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2020.2"
 
 project {
-
     buildType(Build)
-
-    features {
-        buildReportTab {
-            id = "PROJECT_EXT_2"
-            title = "Code Coverage"
-            startPage = "coverage.zip!index.htm"
-        }
-    }
 }
 
 object Build : BuildType({
     name = "Build"
 
     allowExternalStatus = true
-    artifactRules = "./coverlet => coverage.zip"
 
     vcs {
         root(DslContext.settingsRoot)
     }
 
     steps {
-        powerShell {
-            name = "batect"
-            scriptMode = script {
-                content = "./batect test"
-            }
-        }
-        dotnetTest {
-            name = "Run Test"
-            enabled = false
-            projects = """\SmartRouterTest"""
-            coverage = dotcover {
-                toolPath = "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%"
-            }
-        }
-        dotnetBuild {
-            name = "Build solution"
-            enabled = false
-            projects = "SmartRouter.sln"
-            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
-        }
-        dotnetPack {
-            name = "Package build"
-            enabled = false
-            projects = "SmartRouter.sln"
-            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
-        }
-        dotnetPublish {
-            name = "Publish"
-            enabled = false
-            projects = "SmartRouter.sln"
-            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
+
+        script {
+            name = "Batect Build"
+            scriptContent = """
+                #!/bin/bash
+                ./batect build
+            """
         }
     }
 
