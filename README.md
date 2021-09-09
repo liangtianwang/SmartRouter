@@ -22,3 +22,4 @@ Don't forget to create `~/TeamCity/data` and `~/TeamCity/logs` folders
 
 4. Go to `localhost:8111` and create TeamCity project
 5. Add connection to GitHub and connect to project VCS root
+6. 
