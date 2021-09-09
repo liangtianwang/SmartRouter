@@ -1,7 +1,6 @@
+import buildType.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.*
-import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
-import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -28,31 +27,32 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2020.2"
 
 project {
-    buildType(Build)
+    vcsRoot(DslContext.settingsRoot)
+
+    buildType(Compile)
+    buildType(UnitTest)
+    buildType(Package)
+    buildType(Publish)
+
+
+    sequential {
+
+        buildType(Compile)
+
+        parallel {
+            buildType(UnitTest)
+            buildType(UnitTest)
+            buildType(UnitTest)
+        }
+
+        buildType(Package)
+
+        buildType(Publish)
+
+    }
 }
 
-object Build : BuildType({
-    name = "Build"
 
-    allowExternalStatus = true
 
-    vcs {
-        root(DslContext.settingsRoot)
-    }
 
-    steps {
 
-        script {
-            name = "Batect Build"
-            scriptContent = """
-                #!/bin/bash
-                ./batect build
-            """
-        }
-    }
-
-    triggers {
-        vcs {
-        }
-    }
-})
