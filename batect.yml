@@ -18,4 +18,4 @@ tasks:
     description: Run Test
     run:
       container: build-env-framework
-      command: dotnet test SampleProject.UnitTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\\coverlet\\coverage.xml
+      command: dotnet test SampleAPI.UnitTest -c Release --logger "console;verbosity=detailed" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\\coverlet\\coverage.xml
