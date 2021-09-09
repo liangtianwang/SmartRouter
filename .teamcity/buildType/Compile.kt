@@ -24,9 +24,4 @@ object Compile : BuildType({
             """
         }
     }
-
-    triggers {
-        vcs {
-        }
-    }
 })

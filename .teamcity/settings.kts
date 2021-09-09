@@ -28,13 +28,7 @@ version = "2020.2"
 
 project {
 
-    buildType(Compile)
-    buildType(UnitTest)
-    buildType(Package)
-    buildType(Publish)
-
-
-    sequential {
+    val buildChain = sequential {
 
         buildType(Compile)
 
@@ -43,10 +37,11 @@ project {
         }
 
         buildType(Package)
-
         buildType(Publish)
 
     }
+
+    buildChain.buildTypes().forEach() {buildType(it)}
 }
 
 

@@ -24,9 +24,4 @@ object UnitTest : BuildType({
             """
         }
     }
-
-    triggers {
-        vcs {
-        }
-    }
 })

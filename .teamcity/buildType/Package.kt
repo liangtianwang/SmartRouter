@@ -24,9 +24,4 @@ object Package : BuildType({
             """
         }
     }
-
-    triggers {
-        vcs {
-        }
-    }
 })
