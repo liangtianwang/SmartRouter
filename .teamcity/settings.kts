@@ -27,7 +27,6 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2020.2"
 
 project {
-    vcsRoot(DslContext.settingsRoot)
 
     buildType(Compile)
     buildType(UnitTest)
@@ -40,8 +39,6 @@ project {
         buildType(Compile)
 
         parallel {
-            buildType(UnitTest)
-            buildType(UnitTest)
             buildType(UnitTest)
         }
 

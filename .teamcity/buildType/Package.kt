@@ -6,7 +6,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 object Package : BuildType({
-    name = "Build"
+    name = "Package"
 
     allowExternalStatus = true
 
