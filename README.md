@@ -13,13 +13,13 @@ To use this project, follow steps below:
 
 1. Install Docker locally 
 2. Create `~/TeamCity/data`, `~/TeamCity/logs` and `~/TeamCity/agent/conf` folders
-3. Run Docker Compose
+3. Copy `buildAgent.properties` to `~/TeamCity/agent/conf`
+4. Run Docker Compose
 
 ```dockerfile
 docker-compose up -d
 ```
-Don't forget to create `~/TeamCity/data` and `~/TeamCity/logs` folders
+(To stop the server run `docker-compose stop`)
 
-4. Go to `localhost:8111` and create TeamCity project
-5. Add connection to GitHub and connect to project VCS root
-6. 
+5. Go to `localhost:8111` and create TeamCity project
+6. Add connection to GitHub and connect to project VCS root

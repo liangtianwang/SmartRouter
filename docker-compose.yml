@@ -3,7 +3,7 @@ version: '3'
 services:
   
   teamcity_server:
-    image: "jetbrains/teamcity-server"
+    image: jetbrains/teamcity-server:2021.1
     container_name: teamcity-server-instance
     volumes:
       - ~/TeamCity/data:/data/teamcity_server/datadir
@@ -12,10 +12,10 @@ services:
     - "8111:8111"    
       
   teamcity_agent:
-    image: jetbrains/teamcity-agent
+    image: jetbrains/teamcity-agent:2021.1-linux-sudo
+    privileged: true
     container_name: teamcity-agent-instance
     environment:
-      - SERVER_URL="http://teamcity_server:8111"      
       - DOCKER_IN_DOCKER=start
     volumes:
       - ~/TeamCity/agent/conf:/data/teamcity_agent/conf
