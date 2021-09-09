@@ -12,14 +12,12 @@ A sample skeleton project to test how TeamCity CI, Docker & Batect (created by T
 To use this project, follow steps below:
 
 1. Install Docker locally 
-2. Create `~/TeamCity/data`, `~/TeamCity/logs` and `~/TeamCity/agent/conf` folders
-3. Copy `buildAgent.properties` to `~/TeamCity/agent/conf`
-4. Run Docker Compose
+2. Run Docker Compose
 
 ```dockerfile
 docker-compose up -d
 ```
 (To stop the server run `docker-compose stop`)
 
-5. Go to `localhost:8111` and create TeamCity project
-6. Add connection to GitHub and connect to project VCS root
+3. Go to `localhost:8111` and create TeamCity project
+4. Add connection to GitHub and connect to project VCS root
