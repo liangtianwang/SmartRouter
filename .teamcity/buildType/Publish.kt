@@ -20,7 +20,9 @@ object Publish : BuildType({
             name = "Batect Build"
             scriptContent = """
                 #!/bin/bash
-                ./batect build
+                docker login 192.168.121.161:80 -u admin -p Harbor12345
+                docker tag apprentice-skeleton:latest 192.168.121.161:80/public/apprentice-skeleton:latest
+                docker push 192.168.121.161:80/public/apprentice-skeleton:latest
             """
         }
     }

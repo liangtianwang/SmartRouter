@@ -17,10 +17,10 @@ object Package : BuildType({
     steps {
 
         script {
-            name = "Batect Build"
+            name = "Create Docker file"
             scriptContent = """
                 #!/bin/bash
-                ./batect build
+                docker build -t apprentice-skeleton -f Dockerfile .                
             """
         }
     }
