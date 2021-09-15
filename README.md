@@ -7,7 +7,33 @@
 # TeamCity Integration Sample
 A sample skeleton project to test how TeamCity CI, Docker & Batect (created by TWer) work
 
-# Get Started
+## Get Started
+
+This repo requires some environment setting as follows:
+
+1. A VM that runs TeamCity and its Agent
+2. A VM that runs Harbor as docker image repo
+3. K8S clastur
+
+How did I do this:
+I use the following VMs running CentOS server in a PC using NAT network
+1. k8s-server 192.168.121.131
+2. k8s-node-01 192.168.121.132
+3. k8s-node-02 192.168.121.133
+4. tc-server 192.168.121.151
+5. harbor-server 192.168.121.161
+
+To get TeamCity and Harbor accessable from other machines within my home network, I used the following port fowarding:
+
+TeamCity server 192.168.121.151:8111 -> 192.168.1.107:8111
+Harbor server 192.168.121.161:80 -> 192.168.1.107:8112
+
+I also forwarder ssh ports to my home network.
+
+I setup static IP for my PC (192.168.1.107) and all my VMs.
+
+
+### OLD -- reference only
 
 To use this project, follow steps below:
 
